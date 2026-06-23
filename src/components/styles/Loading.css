@@ -145,12 +145,13 @@
 
 .loading-box {
   position: absolute;
-  right: 0px;
+  right: -5px;
   top: 50%;
-  transform: translate(100%, -50%);
-  width: 15px;
-  height: 25px;
-  background-color: white;
+  transform: translateY(-50%);
+  width: 2px;
+  height: 18px;
+  background-color: var(--accentColor, #5eead4);
+  box-shadow: 0px 0px 8px var(--accentColor, #5eead4);
   animation: blink 1s linear infinite;
 }
 
@@ -312,14 +313,25 @@
 
 .loading-marquee {
   position: absolute;
-  top: 50%;
   left: 0;
   width: 100%;
-  transform: translateY(-50%);
-  color: var(--backgroundColor);
+  color: transparent;
+  -webkit-text-stroke: 1.5px rgba(10, 14, 23, 0.15);
   font-size: 60px;
-  font-weight: 600;
+  font-weight: 700;
   text-transform: uppercase;
+  letter-spacing: 2px;
+  pointer-events: none;
+}
+
+.marquee-top {
+  top: 32%;
+  transform: translateY(-50%);
+}
+
+.marquee-bottom {
+  top: 68%;
+  transform: translateY(-50%);
 }
 
 .loading-marquee span {
@@ -329,9 +341,9 @@
 
 .loading-marquee span::before {
   content: "";
-  width: 20px;
-  height: 20px;
-  background-color: var(--backgroundColor);
+  width: 12px;
+  height: 12px;
+  border: 1.5px solid rgba(10, 14, 23, 0.15);
   position: absolute;
   top: 50%;
   border-radius: 50px;

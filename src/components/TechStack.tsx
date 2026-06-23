@@ -9,6 +9,8 @@ import {
   RigidBody,
   RapierRigidBody,
 } from "@react-three/rapier";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 /* ─── Tech logos ─────────────────────────────────────────── */
 const imageUrls = [
@@ -193,22 +195,20 @@ const TechStack = () => {
     Promise.all(imageUrls.map(loadTextureFromUrl)).then(setTextures);
   }, []);
 
-  /* Activate physics when user scrolls to work section */
+  /* Activate physics when user scrolls to techstack section */
   useEffect(() => {
-    const handleScroll = () => {
-      const workEl = document.getElementById("work");
-      if (!workEl) return;
-      const threshold = workEl.getBoundingClientRect().top;
-      setIsActive(window.scrollY > threshold);
-    };
-    document.querySelectorAll(".header a").forEach((el) => {
-      (el as HTMLAnchorElement).addEventListener("click", () => {
-        const interval = setInterval(handleScroll, 10);
-        setTimeout(() => clearInterval(interval), 1000);
-      });
+    gsap.registerPlugin(ScrollTrigger);
+    const trigger = ScrollTrigger.create({
+      trigger: ".techstack",
+      start: "top 95%",
+      end: "bottom 5%",
+      onToggle: (self) => {
+        setIsActive(self.isActive);
+      },
     });
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
+    return () => {
+      trigger.kill();
+    };
   }, []);
 
   /* Premium glass materials — one per logo */

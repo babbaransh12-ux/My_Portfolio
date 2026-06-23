@@ -239,14 +239,19 @@
   border: 1px solid #ffffff50;
   border-radius: 30px;
 }
-@media only screen and (max-width: 1600px) {
+@media only screen and (min-width: 1025px) {
   .what-box h2 {
-    margin-right: 18%;
+    margin-right: 28%;
   }
 }
-@media only screen and (max-width: 1400px) {
+@media only screen and (max-width: 1600px) and (min-width: 1025px) {
   .what-box h2 {
-    margin-right: 20%;
+    margin-right: 32%;
+  }
+}
+@media only screen and (max-width: 1400px) and (min-width: 1025px) {
+  .what-box h2 {
+    margin-right: 38%;
   }
   .what-box-in {
     height: 400px;
