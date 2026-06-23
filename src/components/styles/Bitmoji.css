@@ -1,0 +1,163 @@
+/* ─── Bitmoji Landing Component ─────────────────────────────
+   Mirrors the layout of the original .character-model container.
+   All position/sizing classes from Landing.css are preserved —
+   we just inject our image + effects inside the same wrapper. */
+
+/* ── Container — sits inside .character-model ─────────────── */
+.bitmoji-container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  overflow: visible;
+}
+
+/* ── Floating image wrapper ───────────────────────────────── */
+.bitmoji-image-wrap {
+  position: relative;
+  z-index: 4;
+  animation: bitmoji-float 4s ease-in-out infinite;
+  filter: drop-shadow(0 0 40px rgba(94, 234, 212, 0.35))
+          drop-shadow(0 0 80px rgba(167, 139, 250, 0.2));
+}
+
+.bitmoji-img {
+  height: 75vh;
+  max-height: 780px;
+  min-height: 340px;
+  width: auto;
+  display: block;
+  object-fit: contain;
+  /* pop-in entrance */
+  animation: bitmoji-in 1s cubic-bezier(0.22, 1, 0.36, 1) both;
+  animation-delay: 0.3s;
+}
+
+/* ── Floating keyframes ───────────────────────────────────── */
+@keyframes bitmoji-float {
+  0%,
+  100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-18px);
+  }
+}
+
+@keyframes bitmoji-in {
+  from {
+    opacity: 0;
+    transform: translateY(60px) scale(0.94);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0px) scale(1);
+  }
+}
+
+/* ── Teal / purple aura orbs ─────────────────────────────── */
+.bitmoji-aura {
+  position: absolute;
+  border-radius: 50%;
+  pointer-events: none;
+  filter: blur(70px);
+  z-index: 1;
+  animation: aura-pulse 5s ease-in-out infinite alternate;
+}
+
+.bitmoji-aura--teal {
+  width: 340px;
+  height: 340px;
+  background: radial-gradient(circle, rgba(94, 234, 212, 0.45) 0%, transparent 70%);
+  bottom: 12%;
+  left: 50%;
+  transform: translateX(-72%);
+  animation-delay: 0s;
+}
+
+.bitmoji-aura--purple {
+  width: 300px;
+  height: 300px;
+  background: radial-gradient(circle, rgba(167, 139, 250, 0.4) 0%, transparent 70%);
+  bottom: 12%;
+  left: 50%;
+  transform: translateX(0%);
+  animation-delay: 1.5s;
+}
+
+@keyframes aura-pulse {
+  0% {
+    opacity: 0.6;
+    transform: translateX(-72%) scale(1);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(-72%) scale(1.15);
+  }
+}
+.bitmoji-aura--purple {
+  animation-name: aura-pulse-purple;
+}
+@keyframes aura-pulse-purple {
+  0% {
+    opacity: 0.5;
+    transform: translateX(0%) scale(1);
+  }
+  100% {
+    opacity: 0.9;
+    transform: translateX(0%) scale(1.2);
+  }
+}
+
+/* ── Ground rim glow ──────────────────────────────────────── */
+.bitmoji-rim {
+  position: absolute;
+  bottom: -20px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 420px;
+  height: 80px;
+  background: radial-gradient(ellipse, rgba(94, 234, 212, 0.35) 0%, transparent 70%);
+  filter: blur(20px);
+  z-index: 2;
+  animation: rim-pulse 4s ease-in-out infinite alternate;
+}
+
+@keyframes rim-pulse {
+  0%   { opacity: 0.5; width: 380px; }
+  100% { opacity: 0.9; width: 460px; }
+}
+
+/* ── Bottom fade — blends into next section ───────────────── */
+.bitmoji-container::after {
+  content: "";
+  position: absolute;
+  bottom: -60px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100vw;
+  height: 260px;
+  background: linear-gradient(to bottom, transparent, var(--backgroundColor) 75%);
+  z-index: 5;
+  pointer-events: none;
+}
+
+/* ── Responsive ───────────────────────────────────────────── */
+@media (max-width: 1024px) {
+  .bitmoji-img {
+    height: 55vh;
+  }
+  .bitmoji-aura--teal,
+  .bitmoji-aura--purple {
+    width: 220px;
+    height: 220px;
+  }
+}
+
+@media (max-width: 600px) {
+  .bitmoji-img {
+    height: 45vh;
+  }
+}
