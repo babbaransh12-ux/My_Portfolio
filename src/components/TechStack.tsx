@@ -302,7 +302,7 @@ const TechStack = () => {
         </Physics>
 
         <Environment
-          files="/models/char_enviorment.hdr"
+          files={`${import.meta.env.BASE_URL}models/char_enviorment.hdr`}
           environmentIntensity={1.2}
           environmentRotation={[0, 4, 2]}
         />

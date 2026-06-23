@@ -3,42 +3,44 @@ import "./styles/Work.css";
 import WorkImage from "./WorkImage";
 import { MdArrowBack, MdArrowForward } from "react-icons/md";
 
+const BASE = import.meta.env.BASE_URL;
+
 const projects = [
   {
     title: "E-GatePass System",
     category: "Hostel Leave Management",
     tools: "Flutter, FastAPI, Supabase, Twilio, SQL, QR Code Security, IVR Calls",
-    image: "/images/egatepass.png",
+    image: `${BASE}images/egatepass.png`,
   },
   {
     title: "Project Phoenix",
     category: "AI Research Assistant",
     tools: "Python, Machine Learning, Marine Datasets, NLP",
-    image: "/images/phoenix.png",
+    image: `${BASE}images/phoenix.png`,
   },
   {
     title: "Krishikalap (SIH)",
     category: "Agricultural Hackathon",
     tools: "Python, Git, Data Preprocessing",
-    image: "/images/krishikalap.png",
+    image: `${BASE}images/krishikalap.png`,
   },
   {
     title: "Image Caption Generator",
     category: "Deep Learning Model",
     tools: "Python, TensorFlow/Keras, NLTK, VGG16, LSTM, BLEU Score",
-    image: "/images/image_caption.png",
+    image: `${BASE}images/image_caption.png`,
   },
   {
     title: "Credit Card Datasets",
     category: "Financial Analytics",
     tools: "Kaggle, Pandas, NumPy, Data Analytics, Recommendation Systems",
-    image: "/images/credit_card.png",
+    image: `${BASE}images/credit_card.png`,
   },
   {
     title: "BMI Calculator",
     category: "Python GUI App",
     tools: "Python, GUI Development, Health Tracking",
-    image: "/images/bmi_calculator.png",
+    image: `${BASE}images/bmi_calculator.png`,
   },
 ];
 
