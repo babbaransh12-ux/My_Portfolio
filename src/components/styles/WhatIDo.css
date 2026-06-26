@@ -7,7 +7,7 @@
   opacity: 1;
   height: 100vh;
   width: var(--cWidth);
-  max-width: 1920px;
+  max-width: var(--maxWidth);
   margin: auto;
   z-index: 9;
 }
@@ -43,8 +43,7 @@
   width: 450px;
   height: 33%;
   min-height: 50%;
-  transition: 0.5s;
-  /* border: 0.5px dashed rgba(255, 255, 255, 0.3); */
+  transition: min-height 0.5s ease, padding 0.5s ease;
   position: relative;
   padding: 50px;
   box-sizing: border-box;
@@ -288,7 +287,40 @@
     width: 380px;
   }
 }
-@media only screen and (max-width: 1024px) {
+/* ── Intermediate breakpoint: tablet portrait (768px–1024px) ── */
+@media only screen and (max-width: 1024px) and (min-width: 769px) {
+  .whatIDO {
+    flex-direction: row;
+    height: auto;
+    padding: 60px 0;
+    gap: 30px;
+  }
+
+  .what-box {
+    width: 45%;
+  }
+
+  .what-box h2 {
+    font-size: clamp(2.5rem, 4vw + 1rem, 4rem);
+    line-height: 1.1;
+    margin-right: 0;
+    margin-bottom: 0;
+  }
+
+  .what-box-in {
+    height: 460px;
+    margin-left: 0;
+    display: flex;
+  }
+
+  .what-content {
+    padding: 30px;
+    width: 100%;
+  }
+}
+
+/* ── Mobile (max-width: 1024px) — stacked layout ── */
+@media only screen and (max-width: 768px) {
   .whatIDO {
     height: auto;
     padding: 50px 0px;
@@ -392,7 +424,8 @@
 }
 @media only screen and (min-width: 1950px) {
   .what-box h2 {
-    font-size: 7rem;
-    line-height: 6.8rem;
+    /* clamp() handles this naturally; override only if needed */
+    font-size: clamp(4rem, 6vw + 1rem, 8rem);
+    line-height: 1.05;
   }
 }

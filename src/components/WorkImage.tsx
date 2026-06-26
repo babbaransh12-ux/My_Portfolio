@@ -11,6 +11,7 @@ interface Props {
 const WorkImage = (props: Props) => {
   const [isVideo, setIsVideo] = useState(false);
   const [video, setVideo] = useState("");
+
   const handleMouseEnter = async () => {
     if (props.video) {
       setIsVideo(true);
@@ -29,6 +30,7 @@ const WorkImage = (props: Props) => {
         onMouseEnter={handleMouseEnter}
         onMouseLeave={() => setIsVideo(false)}
         target="_blank"
+        rel="noopener noreferrer"
         data-cursor={"disable"}
       >
         {props.link && (
@@ -36,7 +38,16 @@ const WorkImage = (props: Props) => {
             <MdArrowOutward />
           </div>
         )}
-        <img src={props.image} alt={props.alt} />
+        {/* Explicit width/height + lazy loading prevent CLS (Cumulative Layout Shift) */}
+        <img
+          src={props.image}
+          alt={props.alt ?? "Project screenshot"}
+          className="project-thumbnail"
+          width={800}
+          height={450}
+          loading="lazy"
+          decoding="async"
+        />
         {isVideo && <video src={video} autoPlay muted playsInline loop></video>}
       </a>
     </div>

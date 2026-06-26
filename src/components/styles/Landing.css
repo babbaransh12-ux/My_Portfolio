@@ -168,6 +168,7 @@
   border-radius: 50%;
 }
 
+/* ── Landing intro text — fluid via clamp() ── */
 .landing-intro {
   position: absolute;
   z-index: 9;
@@ -178,7 +179,8 @@
 .landing-intro h2 {
   margin: 0;
   color: var(--accentColor);
-  font-size: 22px;
+  /* 18px @ 320px → 35px @ 1600px */
+  font-size: clamp(1.125rem, 1vw + 0.875rem, 2.2rem);
   font-weight: 300;
   letter-spacing: 2px;
 }
@@ -186,15 +188,12 @@
 .landing-intro h1 {
   margin: 0;
   letter-spacing: 2px;
-  font-size: 28px;
-  line-height: 28px;
+  /* 28px @ 320px → 60px @ 1600px */
+  font-size: clamp(1.75rem, 2.5vw + 1rem, 3.75rem);
+  line-height: 1.1;
   font-weight: 500;
   font-family: "Geist", sans-serif;
 }
-
-/* .landing-intro h1 span {
-   font-weight: 200; 
-} */
 
 .landing-info {
   position: absolute;
@@ -206,7 +205,8 @@
 }
 
 .landing-info h3 {
-  font-size: 22px;
+  /* 18px @ 320px → 35px @ 1600px */
+  font-size: clamp(1.125rem, 1vw + 0.875rem, 2.2rem);
   letter-spacing: 2px;
   font-weight: 300;
   color: var(--accentColor);
@@ -219,8 +219,9 @@
   margin-left: 20px;
   font-family: "Geist", sans-serif;
   font-weight: 600;
-  font-size: 32px;
-  line-height: 40px;
+  /* 32px @ 320px → 65px @ 1600px */
+  font-size: clamp(2rem, 2.8vw + 1rem, 4.06rem);
+  line-height: 1.15;
   position: relative;
   display: flex;
   flex-wrap: nowrap;
@@ -235,7 +236,8 @@
 
 h2.landing-info-h2 {
   color: #14b8a6;
-  font-size: 42px;
+  /* 38px @ 320px → 75px @ 1600px */
+  font-size: clamp(2.375rem, 3vw + 1.25rem, 4.7rem);
   width: 120%;
   margin: 0;
   font-family: "Geist", sans-serif;
@@ -262,6 +264,7 @@ h2.landing-info-h2 {
   left: 0;
 }
 
+/* ── Tablet/Mobile structural layout ── */
 @media screen and (min-width: 500px) {
   .landing-circle2 {
     display: block;
@@ -270,55 +273,11 @@ h2.landing-info-h2 {
   .character-model {
     z-index: 0;
   }
-
-  .landing-info h3 {
-    font-size: 18px;
-  }
-
-  .landing-intro h2 {
-    font-size: 18px;
-  }
-
-  .landing-intro h1 {
-    font-size: 30px;
-    line-height: 30px;
-  }
-
-  .landing-info h2 {
-    font-size: 35px;
-    line-height: 40px;
-  }
-
-  h2.landing-info-h2 {
-    font-size: 38px;
-  }
 }
 
 @media screen and (min-width: 768px) {
   .character-model {
     height: 80vh;
-  }
-
-  .landing-intro h2 {
-    font-size: 25px;
-  }
-
-  .landing-intro h1 {
-    font-size: 40px;
-    line-height: 35px;
-  }
-
-  .landing-info h3 {
-    font-size: 25px;
-  }
-
-  .landing-info h2 {
-    font-size: 45px;
-    line-height: 42px;
-  }
-
-  h2.landing-info-h2 {
-    font-size: 55px;
   }
 }
 
@@ -369,29 +328,5 @@ h2.landing-info-h2 {
     transform: translate(0%, -50%);
     right: auto;
     left: 70%;
-  }
-}
-
-@media screen and (min-width: 1600px) {
-  .landing-intro h2 {
-    font-size: 35px;
-  }
-
-  .landing-intro h1 {
-    font-size: 60px;
-    line-height: 55px;
-  }
-
-  .landing-info h3 {
-    font-size: 35px;
-  }
-
-  .landing-info h2 {
-    font-size: 65px;
-    line-height: 62px;
-  }
-
-  h2.landing-info-h2 {
-    font-size: 75px;
   }
 }

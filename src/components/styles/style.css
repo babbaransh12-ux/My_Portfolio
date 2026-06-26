@@ -1,19 +1,23 @@
+/* ── HoverLinks: slide-up text animation ── */
 .hover-link {
   position: relative;
   display: flex;
   text-wrap: nowrap;
   overflow: hidden;
 }
+
 .hover-in {
   position: relative;
-  transition: 0.3s;
+  transition: transform 0.3s var(--transition-base), color 0.2s ease;
 }
+
 .hover-in div {
   display: flex;
   position: absolute;
   top: 100%;
   left: 0;
 }
+
 .hover-link:hover .hover-in {
   transform: translateY(-100%);
   color: var(--accentColor);

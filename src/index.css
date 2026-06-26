@@ -18,10 +18,27 @@
   user-select: none;
   -webkit-user-select: none;
   -moz-user-select: none;
+
+  /* ── Color Tokens ── */
   --accentColor: #5eead4;
   --backgroundColor: #0a0e17;
   --vh: 100vh;
   --vh: 100svh;
+
+  /* ── Layout Tokens ── */
+  --maxWidth: 1440px;
+  --cWidth: calc(100% - 30px);
+  --cMaxWidth: 1920px;
+
+  /* ── Border Radius Tokens ── */
+  --radius-sm: 6px;
+  --radius-md: 12px;
+  --radius-lg: 50px;
+
+  /* ── Transition Tokens ── */
+  --transition-base: all 0.2s ease-in-out;
+  --transition-slow: all 0.4s ease-in-out;
+  --transition-bounce: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
 }
 
 h1,
@@ -35,6 +52,12 @@ h6 {
 
 body {
   overflow: hidden;
+  margin: 0;
+  height: auto;
+  background-color: #050810;
+  flex-grow: 1;
+  max-width: 100vw;
+  overflow-x: hidden;
 }
 
 a {
@@ -63,22 +86,12 @@ main {
   }
 }
 
-body {
-  margin: 0;
-  height: auto;
-  background-color: #050810;
-  flex-grow: 1;
-  --cWidth: calc(100% - 30px);
-  --cMaxWidth: 1920px;
-  max-width: 100vw;
-  overflow-x: hidden;
-}
-
 .main-body {
   max-width: 100vw;
   overflow-x: hidden;
 }
 
+/* ── Global layout constraint: centres all major sections at 1440px max ── */
 .container-main {
   width: 100%;
   margin: auto;
@@ -92,6 +105,15 @@ body {
   position: relative;
 }
 
+/* Section-container: applies the 1440px max-width cap to section inner-wrappers */
+.section-container {
+  width: var(--cWidth);
+  max-width: var(--maxWidth);
+  margin-left: auto;
+  margin-right: auto;
+  box-sizing: border-box;
+}
+
 .split-line {
   overflow: hidden;
 }
@@ -103,6 +125,26 @@ body {
   flex-wrap: nowrap;
 }
 
+/* ── Responsive project grid utility ── */
+.project-grid {
+  display: grid;
+  grid-template-columns: repeat(1, minmax(0, 1fr));
+  gap: 1.5rem;
+}
+
+@media (min-width: 768px) {
+  .project-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (min-width: 1024px) {
+  .project-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+/* ── Tech Stack Section ── */
 .techstack {
   width: 100%;
   position: relative;
@@ -114,7 +156,8 @@ body {
 }
 
 .techstack h2 {
-  font-size: 80px;
+  /* Fluid: 40px @ 375px → 80px @ 1440px+ */
+  font-size: clamp(2.5rem, 5.5vw + 0.5rem, 5rem);
   text-align: center;
   position: absolute;
   width: 100%;
@@ -139,14 +182,15 @@ body {
   height: 100% !important;
 }
 
+/* ── Global focus-visible accessibility ── */
+:focus-visible {
+  outline: 2px solid var(--accentColor);
+  outline-offset: 3px;
+  border-radius: var(--radius-sm);
+}
+
 @media screen and (min-width: 768px) {
   body {
     --cWidth: 94%;
-  }
-}
-
-@media screen and (max-width: 900px) {
-  .techstack h2 {
-    font-size: 40px;
   }
 }
