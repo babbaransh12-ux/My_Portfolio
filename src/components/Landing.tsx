@@ -1,5 +1,14 @@
 import { PropsWithChildren } from "react";
 import "./styles/Landing.css";
+import { smoother } from "./Navbar";
+
+const scrollToWork = () => {
+  if (window.innerWidth > 1024 && smoother) {
+    smoother.scrollTo("#work", true, "top top");
+  } else {
+    document.querySelector("#work")?.scrollIntoView({ behavior: "smooth" });
+  }
+};
 
 const Landing = ({ children }: PropsWithChildren) => {
   return (
@@ -7,12 +16,39 @@ const Landing = ({ children }: PropsWithChildren) => {
       <div className="landing-section" id="landingDiv">
         <div className="landing-container">
           <div className="landing-intro">
-            <h2>Hello! I'm</h2>
+            <h2 className="landing-greeting">Hello! I'm</h2>
             <h1>
               ANSH
               <br />
               <span>KUMAR</span>
             </h1>
+            <p className="landing-headline">
+              I build AI-powered apps &amp; intelligent interfaces.
+            </p>
+            <p className="landing-sub">
+              Flutter · AI/ML · Full-Stack — crafting intelligent systems and
+              beautiful products for real-world impact.
+            </p>
+            <div className="landing-cta">
+              <button
+                className="cta-btn cta-primary"
+                onClick={scrollToWork}
+                data-cursor="disable"
+                aria-label="View my projects"
+              >
+                View Projects
+              </button>
+              <a
+                className="cta-btn cta-secondary"
+                href={`${import.meta.env.BASE_URL}resume.pdf`}
+                target="_blank"
+                rel="noopener noreferrer"
+                data-cursor="disable"
+                aria-label="Download resume PDF"
+              >
+                Download Resume
+              </a>
+            </div>
           </div>
           <div className="landing-info">
             <h3>AI / ML &</h3>

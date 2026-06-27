@@ -88,6 +88,7 @@ const WhatIDo = () => {
 
             <div className="what-content-in">
               <h3>MOBILE & FULL-STACK</h3>
+              <p className="what-descriptor">Production-grade Flutter apps with clean architecture.</p>
               <h4>Building Apps & APIs</h4>
               <p>
                 Crafting performant, pixel-perfect mobile applications using Flutter & Dart, and designing robust API servers & databases using FastAPI, Node.js, and Supabase.
@@ -99,12 +100,8 @@ const WhatIDo = () => {
                 <div className="what-tags">FastAPI</div>
                 <div className="what-tags">Supabase</div>
                 <div className="what-tags">Node.js</div>
-                <div className="what-tags">Twilio API</div>
                 <div className="what-tags">SQL</div>
                 <div className="what-tags">REST APIs</div>
-                <div className="what-tags">JavaScript</div>
-                <div className="what-tags">HTML5</div>
-                <div className="what-tags">CSS3</div>
               </div>
               <div className="what-arrow"></div>
             </div>
@@ -129,6 +126,7 @@ const WhatIDo = () => {
             <div className="what-corner"></div>
             <div className="what-content-in">
               <h3>AI & ML</h3>
+              <p className="what-descriptor">Deep learning for vision, NLP & predictive analytics.</p>
               <h4>Intelligent Systems & Data Science</h4>
               <p>
                 Designing deep learning models for NLP and computer vision tasks, developing predictive ML models, preprocessing large datasets, and creating datasets for financial analytics.
@@ -137,13 +135,9 @@ const WhatIDo = () => {
               <div className="what-content-flex">
                 <div className="what-tags">Python</div>
                 <div className="what-tags">TensorFlow</div>
-                <div className="what-tags">Keras</div>
                 <div className="what-tags">Scikit-Learn</div>
                 <div className="what-tags">Pandas</div>
-                <div className="what-tags">NumPy</div>
                 <div className="what-tags">NLP</div>
-                <div className="what-tags">Data Analytics</div>
-                <div className="what-tags">Git & GitHub</div>
                 <div className="what-tags">Jupyter</div>
               </div>
               <div className="what-arrow"></div>

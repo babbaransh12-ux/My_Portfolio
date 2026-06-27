@@ -5,9 +5,24 @@ const About = () => {
     <div className="about-section" id="about">
       <div className="about-me">
         <h3 className="title">About Me</h3>
-        <p className="para">
-          I am a B.Tech Computer Science & Engineering (AI/ML) student at Akal University with a strong interest in Artificial Intelligence, Machine Learning, Full-Stack Development, and Mobile App Development. Currently in my 4th semester, I enjoy building practical software solutions that solve real-world problems. My experience includes developing mobile applications using Flutter, backend systems with FastAPI, database management using Supabase, and implementing AI/ML models using Python.
-        </p>
+        <div className="about-paragraphs">
+          <p className="para">
+            I build things that sit at the intersection of AI and real-world
+            use — Flutter apps with smart backends, deep learning pipelines,
+            and full-stack systems that actually ship. I'm drawn to problems
+            where good engineering makes a visible difference.
+          </p>
+          <p className="para">
+            Right now I'm deepening my work in NLP and computer vision through
+            research and side projects, while expanding my Flutter architecture
+            skills beyond state management into production-grade deployment.
+          </p>
+          <p className="para">
+            I'm open to internships, research collaborations, and freelance
+            mobile/AI projects. If you're building something that needs
+            someone who can own both the model and the UI — let's talk.
+          </p>
+        </div>
       </div>
     </div>
   );

@@ -1,7 +1,7 @@
 .contact-section {
   margin: auto;
-  padding-bottom: 100px;
-  margin-top: 100px;
+  padding-bottom: 80px;
+  margin-top: 80px;
   position: relative;
   z-index: 2;
   background-color: var(--backgroundColor);
@@ -10,22 +10,70 @@
 .contact-section h3 {
   /* 40px @ 320px → 60px @ 1600px */
   font-size: clamp(2.5rem, 2vw + 1.75rem, 3.75rem);
-  font-weight: 400;
+  font-weight: 500;
   text-transform: uppercase;
   margin: 0;
+  color: #eae5ec;
+}
+
+.contact-tagline {
+  font-size: clamp(1rem, 0.5vw + 0.95rem, 1.35rem);
+  color: rgba(234, 229, 236, 0.7);
+  margin: 12px 0 35px;
+  font-weight: 300;
+  line-height: 1.5;
+}
+
+/* ── Email CTA Button ── */
+.contact-cta-wrapper {
+  margin-bottom: 50px;
+}
+
+.contact-cta-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background-color: var(--accentColor);
+  color: #0a0e17;
+  padding: 14px 28px;
+  border-radius: var(--radius-lg);
+  font-family: "Geist", sans-serif;
+  font-size: 1rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  text-decoration: none;
+  box-shadow: 0 0 20px rgba(94, 234, 212, 0.35);
+  transition: var(--transition-bounce);
+}
+
+.contact-cta-btn:hover {
+  background-color: #2dd4bf;
+  color: #0a0e17;
+  box-shadow: 0 0 30px rgba(94, 234, 212, 0.6);
+  transform: translateY(-3px) scale(1.02);
+}
+
+.contact-cta-btn:focus-visible {
+  outline: 2px solid var(--accentColor);
+  outline-offset: 3px;
 }
 
 .contact-flex {
   display: flex;
   justify-content: space-between;
+  gap: 40px;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  padding-top: 35px;
 }
 
 .contact-flex h4 {
   font-weight: 500;
-  margin: 0;
-  opacity: 0.6;
-  /* 16px → 18px fluid */
-  font-size: clamp(1rem, 0.2vw + 0.95rem, 1.125rem);
+  margin: 0 0 12px;
+  opacity: 0.5;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-size: 0.8125rem;
 }
 
 .contact-box {
@@ -33,15 +81,23 @@
   flex-direction: column;
 }
 
-.contact-flex p {
-  margin-top: 10px;
-  margin-bottom: 20px;
+.contact-edu-desc {
+  font-size: 1rem;
+  color: #eae5ec;
+  line-height: 1.6;
+  margin: 0;
+  font-weight: 300;
+}
+
+.contact-social-links {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
 }
 
 /* ── Social Links with hover micro-animation ── */
 a.contact-social {
-  /* 20px @ 320px → 25px @ 1600px */
-  font-size: clamp(1.25rem, 0.4vw + 1.1rem, 1.5625rem);
+  font-size: 1rem;
   border-bottom: 1px solid rgba(255, 255, 255, 0.25);
   display: inline-flex;
   align-items: center;
@@ -49,6 +105,8 @@ a.contact-social {
   padding-bottom: 4px;
   transition: var(--transition-base);
   color: #eae5ec;
+  font-weight: 400;
+  text-decoration: none;
 }
 
 a.contact-social:hover {
@@ -64,51 +122,10 @@ a.contact-social:focus-visible {
   border-radius: var(--radius-sm);
 }
 
-.contact-box h2 {
-  font-weight: 400;
-  /* 18px → 23px fluid */
-  font-size: clamp(1.125rem, 0.5vw + 0.95rem, 1.4375rem);
-  margin: 0;
-}
-
-.contact-box h2>span {
-  color: var(--accentColor);
-}
-
-.contact-box h5 {
-  /* 18px → 20px */
-  font-size: clamp(1.125rem, 0.2vw + 1.05rem, 1.25rem);
-  font-weight: 500;
-  line-height: 1.25;
-  display: flex;
-  gap: 10px;
-  opacity: 0.5;
-  margin: 0;
-  margin-top: 8px;
-}
-
-/* ── Email link hover ── */
-.contact-section .contact-box a:not(.contact-social) {
-  transition: var(--transition-base);
-}
-
-.contact-section .contact-box a:not(.contact-social):hover {
-  color: var(--accentColor);
-  letter-spacing: 0.3px;
-}
-
-@media only screen and (max-width: 900px) {
+@media only screen and (max-width: 768px) {
   .contact-flex {
     flex-direction: column;
-    gap: 40px;
-  }
-
-  .contact-flex p {
-    margin-bottom: 0px;
-  }
-
-  .contact-flex h4 {
-    margin-top: 20px;
+    gap: 30px;
   }
 
   .contact-section {
@@ -118,5 +135,6 @@ a.contact-social:focus-visible {
 
   .contact-container {
     width: calc(100% - 25px);
+    margin: auto;
   }
 }

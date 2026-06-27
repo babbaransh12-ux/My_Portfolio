@@ -95,7 +95,6 @@
   height: 400px;
   z-index: 1;
   background-color: #22d3ee;
-  transform: translate(-50%, 36%) scaleX(1.4);
   box-shadow: inset 66px 35px 85px 0px rgba(0, 180, 180, 0.65);
   filter: blur(50px);
   border-radius: 50%;
@@ -106,7 +105,6 @@
 }
 
 .character-model {
-  height: 80%;
   height: 80vh;
   position: absolute;
   max-width: 1920px;
@@ -176,7 +174,8 @@
   left: 0;
 }
 
-.landing-intro h2 {
+.landing-intro h2,
+.landing-greeting {
   margin: 0;
   color: var(--accentColor);
   /* 18px @ 320px → 35px @ 1600px */
@@ -193,6 +192,84 @@
   line-height: 1.1;
   font-weight: 500;
   font-family: "Geist", sans-serif;
+}
+
+/* ── Hero punchy headline & sub-description ── */
+.landing-headline {
+  margin: 0.6rem 0 0.35rem;
+  font-size: clamp(0.8rem, 1vw + 0.5rem, 1.05rem);
+  font-weight: 500;
+  color: #eae5ec;
+  letter-spacing: 0.3px;
+  line-height: 1.4;
+  max-width: 360px;
+}
+
+.landing-sub {
+  margin: 0 0 1.1rem;
+  font-size: clamp(0.7rem, 0.7vw + 0.45rem, 0.875rem);
+  color: rgba(234, 229, 236, 0.55);
+  font-weight: 300;
+  letter-spacing: 0.5px;
+  line-height: 1.5;
+  max-width: 340px;
+}
+
+/* ── CTA Buttons ── */
+.landing-cta {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.cta-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  padding: 9px 20px;
+  border-radius: var(--radius-lg);
+  font-family: "Geist", sans-serif;
+  font-size: clamp(0.68rem, 0.4vw + 0.55rem, 0.8125rem);
+  font-weight: 600;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: var(--transition-bounce);
+  text-decoration: none;
+  white-space: nowrap;
+  border: none;
+}
+
+.cta-primary {
+  background-color: var(--accentColor);
+  color: #0a0e17;
+  box-shadow: 0 0 18px rgba(94, 234, 212, 0.35);
+}
+
+.cta-primary:hover {
+  background-color: #2dd4bf;
+  color: #0a0e17;
+  box-shadow: 0 0 28px rgba(94, 234, 212, 0.6);
+  transform: translateY(-2px) scale(1.03);
+}
+
+.cta-secondary {
+  background-color: transparent;
+  color: #eae5ec;
+  border: 1.5px solid rgba(234, 229, 236, 0.35);
+}
+
+.cta-secondary:hover {
+  border-color: var(--accentColor);
+  color: var(--accentColor);
+  transform: translateY(-2px);
+}
+
+.cta-btn:focus-visible {
+  outline: 2px solid var(--accentColor);
+  outline-offset: 3px;
 }
 
 .landing-info {

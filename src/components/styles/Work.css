@@ -22,7 +22,11 @@
   margin: auto;
 }
 
-/* ── Carousel ── */
+/* ── Carousel (desktop only, shown ≥768px) ── */
+.carousel-desktop {
+  display: none;
+}
+
 .carousel-wrapper {
   position: relative;
   width: 100%;
@@ -93,23 +97,79 @@
   font-size: clamp(0.875rem, 0.2vw + 0.8rem, 1rem);
 }
 
-.carousel-tools {
-  margin-top: 16px;
+/* ── Problem statement ── */
+.carousel-problem {
+  font-size: clamp(0.8125rem, 0.3vw + 0.7rem, 0.9375rem);
+  color: rgba(234, 229, 236, 0.65);
+  font-weight: 300;
+  line-height: 1.55;
+  margin: 4px 0 2px;
 }
 
-.carousel-tools .tools-label {
-  font-size: 0.875rem;
-  font-weight: 400;
-  opacity: 0.6;
-  text-transform: uppercase;
-  letter-spacing: 1px;
+/* ── Tech badge pills ── */
+.carousel-badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin: 4px 0;
 }
 
-.carousel-tools p {
-  font-weight: 200;
-  color: #adacac;
-  margin: 6px 0 0;
-  font-size: 0.9375rem;
+.carousel-badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 3px 10px;
+  border-radius: 20px;
+  font-size: 0.7rem;
+  font-weight: 500;
+  letter-spacing: 0.5px;
+  border: 1px solid rgba(94, 234, 212, 0.3);
+  color: var(--accentColor);
+  background-color: rgba(94, 234, 212, 0.06);
+  white-space: nowrap;
+}
+
+/* ── Impact metric callout ── */
+.carousel-metric {
+  font-size: clamp(0.75rem, 0.3vw + 0.65rem, 0.875rem);
+  color: var(--accentColor);
+  font-weight: 500;
+  letter-spacing: 0.3px;
+  margin: 2px 0;
+  line-height: 1.4;
+}
+
+/* ── Icon link buttons ── */
+.carousel-links {
+  display: flex;
+  gap: 8px;
+  margin-top: 6px;
+}
+
+.carousel-link-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  color: #eae5ec;
+  font-size: 1rem;
+  transition: var(--transition-base);
+  text-decoration: none;
+}
+
+.carousel-link-btn:hover {
+  background: rgba(94, 234, 212, 0.12);
+  border-color: var(--accentColor);
+  color: var(--accentColor);
+  box-shadow: 0 0 14px rgba(94, 234, 212, 0.25);
+  transform: translateY(-2px) scale(1.08);
+}
+
+.carousel-link-demo {
+  font-size: 1.1rem;
 }
 
 .carousel-image-wrapper {
@@ -158,7 +218,6 @@
 
 /* ── Arrow positions — clamped to stay inside viewport ── */
 .carousel-arrow-left {
-  /* Never goes more than 10px outside the wrapper at any width */
   left: clamp(10px, -40px + 5vw, -70px);
 }
 
@@ -182,7 +241,6 @@
   background: transparent;
   cursor: pointer;
   transition: var(--transition-base);
-  /* Invisible padding enlarges the tap target to 48×48 without visual change */
   padding: 16px;
   box-sizing: content-box;
   background-clip: content-box;
@@ -213,7 +271,7 @@
   object-fit: cover;
   display: block;
   border-radius: var(--radius-sm);
-  background-color: #1a1f2e; /* placeholder colour while loading */
+  background-color: #1a1f2e;
 }
 
 /* ── Work Image (reused) ── */
@@ -275,7 +333,97 @@
   transition: var(--transition-slow);
 }
 
+/* ── Mobile: Stacked project cards (<768px) ── */
+.project-cards-mobile {
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+}
+
+.project-card {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  transition: var(--transition-slow);
+}
+
+.project-card:hover {
+  border-color: rgba(94, 234, 212, 0.2);
+  box-shadow: 0 8px 32px rgba(94, 234, 212, 0.07);
+  transform: translateY(-3px);
+}
+
+.project-card-image {
+  width: 100%;
+}
+
+.project-card-image .work-image {
+  margin: 0;
+}
+
+.project-card-image .work-image img {
+  max-height: 200px;
+  border-radius: 0;
+  width: 100%;
+  object-fit: cover;
+}
+
+.project-card-body {
+  padding: 18px 20px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.project-card-header {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.project-card-num {
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--accentColor);
+  opacity: 0.6;
+  letter-spacing: 1px;
+}
+
+.project-card-header h4 {
+  font-size: 1.125rem;
+  font-weight: 600;
+  margin: 0;
+  letter-spacing: 0.2px;
+}
+
+.project-card-category {
+  font-size: 0.8125rem;
+  color: #adacac;
+  font-weight: 300;
+  margin: 0;
+}
+
+.project-card-problem {
+  font-size: 0.875rem;
+  color: rgba(234, 229, 236, 0.65);
+  font-weight: 300;
+  line-height: 1.55;
+  margin: 0;
+}
+
 /* ── Responsive ── */
+@media only screen and (min-width: 768px) {
+  /* On ≥768px: show carousel, hide stacked cards */
+  .carousel-desktop {
+    display: block;
+  }
+
+  .project-cards-mobile {
+    display: none;
+  }
+}
+
 @media only screen and (max-width: 1025px) {
   .carousel-content {
     flex-direction: column;
